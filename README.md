@@ -1,3 +1,3 @@
-# FAAS Templates
+# FAAS Node
 
-Templates for developing [OpenFAAS](https://openfaas.com) functions
+NodeJS template for developing [OpenFAAS](https://openfaas.com) functions

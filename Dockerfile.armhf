@@ -1,0 +1,5 @@
+FROM arm32v6/alpine:3.6
+
+RUN [ "cross-build-start" ]
+
+RUN [ "cross-build-end" ]
