@@ -14,7 +14,8 @@ before_install:
 
 script:
 - make build-all
-- docker inspect ${DOCKER_USER}/faas-node-template | grep -i arch
+- docker inspect ${DOCKER_USER}/faas-node-template:latest | grep -i arch
+- docker inspect ${DOCKER_USER}/faas-node-template:latest-armhf | grep -i arch
 
 deploy:
   provider: script
