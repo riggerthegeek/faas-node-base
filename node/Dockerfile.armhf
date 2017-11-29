@@ -1,1 +1,1 @@
-FROM arm32v6/alpine:3.6
+FROM resin/armhf-alpine
