@@ -7,9 +7,9 @@ build-armhf:
 .PHONY: build-armhf
 
 publish:
-	docker push ${TAG_NAME}:latest
+	docker push ${DOCKER_USER}/faas-node:latest
 .PHONY: publish
 
 publish-armhf:
-	docker push ${TAG_NAME}:latest-armhf
+	docker push ${DOCKER_USER}/faas-node:latest-armhf
 .PHONY: publish-armhf
