@@ -1,14 +1,16 @@
 {
   "name": "NodejsBase",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "postversion": "git push --tag && git push",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "private": true,
   "dependencies": {
     "get-stdin": "^5.0.1"
   }
