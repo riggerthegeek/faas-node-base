@@ -7,14 +7,14 @@ ARG FWATCHDOG_VERSION="0.6.12"
 ENV cgi_headers="true"
 ENV fprocess="node index.js"
 
-# Install NodeJS and node usere
+# Install NodeJS and node user
 RUN addgroup -g 1000 node \
   && adduser -u 1000 -G node -s /bin/sh -D node
 
 # Add the fwatchdog - this is cached
 RUN apk --no-cache add curl \
     && echo "Pulling watchdog binary from Github." \
-    && curl -sSL https://github.com/openfaas/faas/releases/download/${FWATCHDOG_VERSION}/fwatchdog > /usr/bin/fwatchdog \
+    && curl -sSL https://github.com/openfaas/faas/releases/download/${FWATCHDOG_VERSION}/fwatchdog-armhf > /usr/bin/fwatchdog \
     && chmod +x /usr/bin/fwatchdog \
     && apk del curl --no-cache
 
@@ -37,5 +37,3 @@ HEALTHCHECK --interval=1s CMD [ -e /tmp/.lock ] || exit 1
 CMD ["fwatchdog"]
 
 RUN [ "cross-build-end" ]
-
-USER node
