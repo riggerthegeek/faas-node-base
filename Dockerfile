@@ -1,6 +1,6 @@
 FROM node:8-alpine
 
-ARG FWATCHDOG_VERSION="0.6.12"
+ARG FWATCHDOG_VERSION="0.7.0"
 
 ENV cgi_headers="true"
 ENV fprocess="node index.js"
