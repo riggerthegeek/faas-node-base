@@ -1,5 +1,5 @@
 DOCKER_IMG ?= faas-node
-DOCKER_USER ?=
+DOCKER_USER ?= ""
 
 VERSION = "0.7.0"
 VERSION_MAJOR = "0"
@@ -13,8 +13,8 @@ endif
 
 build:
 	@echo "Building latest Docker images"
-	docker build --file=./Dockerfile --tag ${TAG_NAME}:${VERSION_TYPE} .
-	docker build --file=./Dockerfile.armhf --tag ${TAG_NAME}:${VERSION_TYPE}-arm .
+	docker build --file=./Dockerfile --build-arg=FWATCHDOG_VERSION=${VERSION} --tag ${TAG_NAME}:${VERSION_TYPE} .
+	docker build --file=./Dockerfile.armhf --build-arg FWATCHDOG_VERSION=${VERSION} --tag ${TAG_NAME}:${VERSION_TYPE}-arm .
 .PHONY: build
 
 publish:
