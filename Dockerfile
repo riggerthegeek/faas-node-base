@@ -1,6 +1,6 @@
 FROM node:8-alpine
 
-ARG FWATCHDOG_VERSION="0.7.0"
+ARG FWATCHDOG_VERSION
 
 ENV cgi_headers="true"
 ENV fprocess="node index.js"
@@ -8,7 +8,8 @@ ENV fprocess="node index.js"
 # Add the fwatchdog - this is cached
 RUN apk --no-cache add curl \
     && echo "Pulling watchdog binary from Github." \
-    && curl -sSL https://github.com/openfaas/faas/releases/download/${FWATCHDOG_VERSION}/fwatchdog > /usr/bin/fwatchdog \
+    && curl -sSL https://github.com/openfaas/faas/releases/download/${FWATCHDOG_VERSION}/fwatchdog > /usr/bin/fwatchdog-v${FWATCHDOG_VERSION} \
+    && ln -s /usr/bin/fwatchdog-v${FWATCHDOG_VERSION} /usr/bin/fwatchdog \
     && chmod +x /usr/bin/fwatchdog \
     && apk del curl --no-cache
 
