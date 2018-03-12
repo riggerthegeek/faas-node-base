@@ -1,7 +1,7 @@
 DOCKER_IMG ?= faas-node
 DOCKER_USER ?= ""
 
-VERSION = "0.7.4"
+VERSION = "0.7.5"
 VERSION_MAJOR = "0"
 VERSION_MINOR = "0.7"
 VERSION_TYPE = "latest"
